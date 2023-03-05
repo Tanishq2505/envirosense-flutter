@@ -18,8 +18,8 @@ class BndBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    flutterTts.setSpeechRate(0.5);
     List<Widget> _renderBoxes() {
-      flutterTts.setSpeechRate(0.5);
       return results.map((re) {
         if ((re["confidenceInClass"] * 100) > 50) {
           _speak(re);
@@ -153,7 +153,8 @@ class BndBox extends StatelessWidget {
 
   void _speak(re) async {
     await flutterTts.awaitSpeakCompletion(true);
+    await flutterTts.setSilence(250);
     await flutterTts
-        .speak("You have " + re["detectedClass"] + " in front of you!");
+        .speak("${"You have " + re["detectedClass"]} in front of you!");
   }
 }
