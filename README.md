@@ -1,4 +1,4 @@
-# flutter_realtime_detection_v3
+# EnviroSense
 
 A new Flutter project.
 
